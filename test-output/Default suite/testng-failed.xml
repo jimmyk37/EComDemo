@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="login.logintest">
+      <class name="product.TestBrandProducts">
         <methods>
-          <include name="launchBrowser"/>
+          <include name="afterMethod"/>
           <include name="closeDriver"/>
-          <include name="gettital"/>
+          <include name="setUp"/>
+          <include name="viewProductPageBrandsProducts"/>
+          <include name="setup"/>
+          <include name="launchBrowser"/>
         </methods>
-      </class> <!-- login.logintest -->
+      </class> <!-- product.TestBrandProducts -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
