@@ -12,7 +12,9 @@ public interface WebDriverActions {
     void sendKeys(WebElement element, CharSequence... keysToSend);
     void clear(WebElement element);
     void submit(WebElement element);
+    String getText(WebElement element);
     public void hoverOverElement(WebElement element);
+    public void downLoadFile(WebElement element);
 
     // Element Visibility and Interaction
     boolean isDisplayed(WebElement element);

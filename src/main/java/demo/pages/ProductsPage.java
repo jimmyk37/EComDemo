@@ -8,8 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import demo.action.Action;
+import demo.base.BaseClass;
 
-public class ProductsPage extends Action{
+public class ProductsPage extends BaseClass{
+	Action action;
 	
 	@FindBy(xpath = "//h2[contains(text(),'All Products')]")    WebElement allProductsText;
     @FindBy(xpath = "//div[@class='productinfo text-center']")    List<WebElement> productsList;
@@ -39,15 +41,16 @@ public class ProductsPage extends Action{
     
     public ProductsPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		action=new Action();
 	}
     
     public String getSearchTital() {
-    	isDisplayed(titaltext);
+    	action.isDisplayed(titaltext);
     	return titaltext.getText();
     }
     
     public boolean isAllProductsPageVisible() {
-        return isDisplayed(allProductsText);
+        return action.isDisplayed(allProductsText);
     }
 
     public boolean isProductsListVisible() {
@@ -55,87 +58,87 @@ public class ProductsPage extends Action{
     }
 
     public void clickFirstProductView() {
-        click(firstProductViewButton);
+    	action.click(firstProductViewButton);
     }
     
     public void enterProductNameInSearch(String productName) {
-        sendKeys(searchInput,productName);
+    	action.sendKeys(searchInput,productName);
     }
 
     public void clickSearchButton() {
-        click(searchButton);
+    	action.click(searchButton);
     }
 
     public boolean isSearchedProductsVisible() {
-        return isDisplayed(searchedProductsText);
+        return action.isDisplayed(searchedProductsText);
     }
     
     public void hoverOverFirstProduct() {
-        hoverOverElement(firstProduct);
+    	action.hoverOverElement(firstProduct);
     }
     
     public void hoverOverSecondProduct() {
-        hoverOverElement(secondProduct);
+    	action.hoverOverElement(secondProduct);
     }
     
     public void clickAddToCartFirstProduct() {
-        click(addToCartFirstProduct);
+    	action.click(addToCartFirstProduct);
     }
     
     public void clickAddToCartSecondProduct() {
-        click(addToCartSecondProduct);
+    	action.click(addToCartSecondProduct);
     }
     
     public void clickContinueShopping() {
-        click(continueShoppingButton);
+    	action.click(continueShoppingButton);
     }
     
     public void clickViewCart() {
-        click(viewCartModal);
+    	action.click(viewCartModal);
     }
     
     public void clickFirstProductViewButton() {
-        click(firstProductViewButton);
+    	action.click(firstProductViewButton);
     }
     
     public boolean areBrandsVisible() {
-        return isDisplayed(brandsSectionVisible);
+        return action.isDisplayed(brandsSectionVisible);
     }
 
     public void clickPoloBrand() {
-        click(poloBrandLink);
+    	action.click(poloBrandLink);
     }
 
     public void clickHmBrand() {
-        click(hmBrandLink);
+    	action.click(hmBrandLink);
     }
     
     public boolean areCategoriesVisible() {
-        return isDisplayed(categorySectionVisible);
+        return action.isDisplayed(categorySectionVisible);
     }
     
     public void clickWomenCategory() {
-        click(womenCategoryLink);
+    	action.click(womenCategoryLink);
     }
     
     public void clickDressesSubCategory() {
-        click(dressesSubCategoryLink);
+    	action.click(dressesSubCategoryLink);
     }
     public void clickTshirtsSubCategory() {
-        click(jeansSubCategoryLink);
+    	action.click(jeansSubCategoryLink);
     }
     
     public void clickMenCategory() {
-        click(menCategoryLink);
+    	action.click(menCategoryLink);
 }
     public void addAllProductsToCart() {
     	for (int i = 0; i < productsList.size(); i++) {
             WebElement product = productsList.get(i);
             WebElement addToCartButton = addToCartButtons.get(i);
             
-            hoverOverElement(product);  // Hover over the product
-            click(addToCartButton);     // Click the corresponding "Add to Cart" button
-            click(continueShoppingButton);  // Click "Continue Shopping" if needed
+            action.hoverOverElement(product);  // Hover over the product
+            action.click(addToCartButton);     // Click the corresponding "Add to Cart" button
+            action.click(continueShoppingButton);  // Click "Continue Shopping" if needed
         }
     }
     

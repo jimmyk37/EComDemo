@@ -6,8 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import demo.action.Action;
+import demo.base.BaseClass;
 
-public class LoginPage extends Action {
+public class LoginPage extends BaseClass {
+	
+	Action action;
 
 	@FindBy(xpath = "//h2[contains(text(),'Login to your account')]")
 	WebElement loginToYourAccountText;
@@ -26,35 +29,36 @@ public class LoginPage extends Action {
 
 	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		action= new Action();
 	}
 
 	public boolean isLoginToYourAccountVisible() {
-		return isDisplayed(loginToYourAccountText);
+		return action.isDisplayed(loginToYourAccountText);
 
 	}
 
 	public void enterEmail(String email, String password) {
 
-		sendKeys(emailField, email);
-		sendKeys(passwordField, password);
+		action.sendKeys(emailField, email);
+		action.sendKeys(passwordField, password);
 		setLog("Entered Email & Password");
 	}
 
 	public void clickLoginButton() {
-		click(loginButton);
+		action.click(loginButton);
 		setLog("Clicked on Login Button");
 	}
 
 	public boolean isErrorMessageVisible() {
-		return isDisplayed(errorMessage);
+		return action.isDisplayed(errorMessage);
 	}
 
 	public boolean isLoggedInAsUsernameVisible() {
-		return isDisplayed(loggedInAsUsername);
+		return action.isDisplayed(loggedInAsUsername);
 	}
 
 	public void clickLogoutButton() {
-		click(logoutButton);
+		action.click(logoutButton);
 		setLog("Clicked on Login Button");
 	}
 

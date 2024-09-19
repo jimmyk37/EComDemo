@@ -144,6 +144,7 @@ public class BaseClass extends ExtentManager {
     }
     
     public static WebDriver getDriver() {return idriver.get();}
+    
     public static void setLog(String log) {
     	logger.info(log);
     	test.log(Status.INFO, log);

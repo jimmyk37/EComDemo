@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import demo.base.BaseClass;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.Set;
 
@@ -35,7 +37,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureElementIsInteractable(element);
             element.click();
-            System.out.println("Successfully clicked on the element.");
         } catch (Exception e) {
             System.out.println("Failed to click on the element. Error: " + e.getMessage());
         }
@@ -47,7 +48,6 @@ public class Action extends BaseClass implements WebDriverActions  {
             ensureElementIsInteractable(element);
             clear(element);
             element.sendKeys(keysToSend);
-            System.out.println("Successfully sent keys to the element.");
         } catch (Exception e) {
             System.out.println("Failed to send keys to the element. Error: " + e.getMessage());
         }
@@ -58,7 +58,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureElementIsInteractable(element);
             element.clear();
-            System.out.println("Successfully cleared the element.");
         } catch (Exception e) {
             System.out.println("Failed to clear the element. Error: " + e.getMessage());
         }
@@ -69,7 +68,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureElementIsInteractable(element);
             element.submit();
-            System.out.println("Successfully submitted the element.");
         } catch (Exception e) {
             System.out.println("Failed to submit the element. Error: " + e.getMessage());
         }
@@ -80,7 +78,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             waitForElementToBeVisible(element, Duration.ofSeconds(10)); // Adjust timeout if necessary
             boolean isDisplayed = element.isDisplayed();
-            System.out.println("Element visibility checked successfully.");
             return isDisplayed;
         } catch (Exception e) {
             System.out.println("Failed to check if element is displayed. Error: " + e.getMessage());
@@ -92,7 +89,6 @@ public class Action extends BaseClass implements WebDriverActions  {
     public boolean isEnabled(WebElement element) {
         try {
             boolean isEnabled = element.isEnabled();
-            System.out.println("Element enabled state checked successfully.");
             return isEnabled;
         } catch (Exception e) {
             System.out.println("Failed to check if element is enabled. Error: " + e.getMessage());
@@ -104,7 +100,6 @@ public class Action extends BaseClass implements WebDriverActions  {
     public boolean isSelected(WebElement element) {
         try {
             boolean isSelected = element.isSelected();
-            System.out.println("Element selection state checked successfully.");
             return isSelected;
         } catch (Exception e) {
             System.out.println("Failed to check if element is selected. Error: " + e.getMessage());
@@ -117,7 +112,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureWaitIsInitialized();
             wait.withTimeout(timeout).until(ExpectedConditions.visibilityOf(element));
-            System.out.println("Element is visible now.");
         } catch (Exception e) {
             System.out.println("Failed to wait for element to be visible. Error: " + e.getMessage());
         }
@@ -128,7 +122,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureWaitIsInitialized();
             wait.withTimeout(timeout).until(ExpectedConditions.elementToBeClickable(element));
-            System.out.println("Element is clickable now.");
         } catch (Exception e) {
             System.out.println("Failed to wait for element to be clickable. Error: " + e.getMessage());
         }
@@ -139,7 +132,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureWaitIsInitialized();
             wait.withTimeout(timeout).until(ExpectedConditions.presenceOfElementLocated(locator));
-            System.out.println("Element is present now.");
         } catch (Exception e) {
             System.out.println("Failed to wait for element to be present. Error: " + e.getMessage());
         }
@@ -150,7 +142,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureWaitIsInitialized();
             wait.withTimeout(timeout).until(ExpectedConditions.invisibilityOf(element));
-            System.out.println("Element is invisible now.");
         } catch (Exception e) {
             System.out.println("Failed to wait for element to be invisible. Error: " + e.getMessage());
         }
@@ -161,7 +152,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             ensureWaitIsInitialized();
             wait.withTimeout(timeout).until(ExpectedConditions.textToBePresentInElement(element, text));
-            System.out.println("Element has the expected text.");
         } catch (Exception e) {
             System.out.println("Failed to wait for element to have text. Error: " + e.getMessage());
         }
@@ -172,7 +162,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript(script, args);
-            System.out.println("JavaScript executed successfully.");
         } catch (Exception e) {
             System.out.println("Failed to execute JavaScript. Error: " + e.getMessage());
         }
@@ -182,7 +171,6 @@ public class Action extends BaseClass implements WebDriverActions  {
     public void scrollIntoView(WebElement element) {
         try {
             executeJavaScript("arguments[0].scrollIntoView(true);", element);
-            System.out.println("Scrolled into view successfully.");
         } catch (Exception e) {
             System.out.println("Failed to scroll into view. Error: " + e.getMessage());
         }
@@ -192,7 +180,6 @@ public class Action extends BaseClass implements WebDriverActions  {
     public void highlightElement(WebElement element) {
         try {
             executeJavaScript("arguments[0].style.border='3px solid red';", element);
-            System.out.println("Element highlighted successfully.");
         } catch (Exception e) {
             System.out.println("Failed to highlight element. Error: " + e.getMessage());
         }
@@ -203,7 +190,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             Alert alert = driver.switchTo().alert();
             alert.accept();
-            System.out.println("Alert accepted successfully.");
         } catch (Exception e) {
             System.out.println("Failed to accept alert. Error: " + e.getMessage());
         }
@@ -214,7 +200,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             Alert alert = driver.switchTo().alert();
             alert.dismiss();
-            System.out.println("Alert dismissed successfully.");
         } catch (Exception e) {
             System.out.println("Failed to dismiss alert. Error: " + e.getMessage());
         }
@@ -225,7 +210,6 @@ public class Action extends BaseClass implements WebDriverActions  {
         try {
             Alert alert = driver.switchTo().alert();
             String text = alert.getText();
-            System.out.println("Alert text retrieved successfully.");
             return text;
         } catch (Exception e) {
             System.out.println("Failed to get alert text. Error: " + e.getMessage());
@@ -239,7 +223,6 @@ public class Action extends BaseClass implements WebDriverActions  {
             ensureElementIsInteractable(element);
             Select select = new Select(element);
             select.selectByVisibleText(text);
-            System.out.println("Selected option by visible text successfully.");
         } catch (Exception e) {
             System.out.println("Failed to select by visible text. Error: " + e.getMessage());
         }
@@ -251,7 +234,6 @@ public class Action extends BaseClass implements WebDriverActions  {
             ensureElementIsInteractable(element);
             Select select = new Select(element);
             select.selectByIndex(index);
-            System.out.println("Selected option by index successfully.");
         } catch (Exception e) {
             System.out.println("Failed to select by index. Error: " + e.getMessage());
         }
@@ -263,7 +245,6 @@ public class Action extends BaseClass implements WebDriverActions  {
             ensureElementIsInteractable(element);
             Select select = new Select(element);
             select.selectByValue(value);
-            System.out.println("Selected option by value successfully.");
         } catch (Exception e) {
             System.out.println("Failed to select by value. Error: " + e.getMessage());
         }
@@ -360,7 +341,33 @@ public class Action extends BaseClass implements WebDriverActions  {
 
 	@Override
 	public void hoverOverElement(WebElement element) {
-		// TODO Auto-generated method stub
+		 
+		
+	}
+
+	@Override
+	public String getText(WebElement element) {
+		try {
+			isDisplayed(element);
+			return element.getText();
+			
+		} catch (Exception e) {
+			System.out.println("Unable to Get Text. Error: " + e.getMessage());
+			return null;
+		}
+		
+	}
+
+	@Override
+	public void downLoadFile(WebElement element) {
+		click(element);
+		 try {
+			 Robot robot = new Robot();
+			 robot.keyPress(KeyEvent.VK_ENTER);
+	            robot.keyRelease(KeyEvent.VK_ENTER);
+		} catch (Exception e) {
+			System.out.println("Unable to Download file");
+		}
 		
 	}
 }

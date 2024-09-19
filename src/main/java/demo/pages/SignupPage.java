@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import demo.action.Action;
+import demo.base.BaseClass;
 
-public class SignupPage extends Action {
+public class SignupPage extends BaseClass {
 	
+	Action action;
 	
     // Locators
     @FindBy(xpath = "//h2[text()='New User Signup!']")
@@ -98,43 +100,44 @@ public class SignupPage extends Action {
 
     public SignupPage(WebDriver driver) {        
         PageFactory.initElements(driver, this);
+        action=new Action();
     }
 
     public void enterNameAndEmail(String name, String email) {    	
-    	sendKeys(nameInput, name);
-    	sendKeys(emailInput, email);
+    	action.sendKeys(nameInput, name);
+    	action.sendKeys(emailInput, email);
     	setLog("Entered Name & Email Address");
     	
     }
 
     public void clickSignupButton() {
-    	click(signupButton);
+    	action.click(signupButton);
     	setLog("Clicked on Signup Button");
     }
 
     public boolean isNewUserSignupVisible() {
-        return isDisplayed(newUserSignupText);
+        return action.isDisplayed(newUserSignupText);
         
     }
     
     public boolean isEmailAlreadyExistVisible() {
-        return isDisplayed(emailalreadyexistText);
+        return action.isDisplayed(emailalreadyexistText);
     }
 
     public boolean isAccountInfoVisible() {
-        return isDisplayed(accountInfoText);
+        return action.isDisplayed(accountInfoText);
     }
 
     public void fillAccountInformation(String title, String password, String day, String month, String year) {
         if (title.equalsIgnoreCase("Mr")) {
-        	click(titleMrRadio);
+        	action.click(titleMrRadio);
         } else {
-        	click(titleMrsRadio);
+        	action.click(titleMrsRadio);
         }
-        sendKeys(passwordInput, password);
-        selectByValue(daySelect, day);
-        selectByValue(monthSelect, month);
-        selectByValue(yearSelect, year);
+        action.sendKeys(passwordInput, password);
+        action.selectByValue(daySelect, day);
+        action.selectByValue(monthSelect, month);
+        action.selectByValue(yearSelect, year);
         
         setLog("Entered Account Information");
     }
@@ -143,50 +146,50 @@ public class SignupPage extends Action {
 
 	public void selectCheckboxes(boolean newsletter, boolean specialOffers) {
         if (newsletter) {
-        	click(newsletterCheckbox);
+        	action.click(newsletterCheckbox);
         	setLog("Selected Newsletter Checkbox");
         }
         if (specialOffers) {
-        	click(specialOffersCheckbox);
+        	action.click(specialOffersCheckbox);
         	setLog("Selected offers Checkbox");
         }
     }
 
     public void fillAdditionalDetails(String firstName, String lastName, String company, String address1, String address2, String country, String state, String city, String zipcode, String mobileNumber) {
-    	sendKeys(firstNameInput, firstName);
-    	sendKeys(lastNameInput, lastName);
-    	sendKeys(companyInput, company);
-    	sendKeys(address1Input, address1);
-    	sendKeys(address2Input, address2);
-    	selectByValue(countrySelect, country);
-    	sendKeys(stateInput, state);
-    	sendKeys(cityInput, city);
-    	sendKeys(zipcodeInput, zipcode);
-    	sendKeys(mobileNumberInput, mobileNumber);
+    	action.sendKeys(firstNameInput, firstName);
+    	action.sendKeys(lastNameInput, lastName);
+    	action.sendKeys(companyInput, company);
+    	action.sendKeys(address1Input, address1);
+    	action.sendKeys(address2Input, address2);
+    	action.selectByValue(countrySelect, country);
+    	action.sendKeys(stateInput, state);
+    	action.sendKeys(cityInput, city);
+    	action.sendKeys(zipcodeInput, zipcode);
+    	action.sendKeys(mobileNumberInput, mobileNumber);
     	
     	setLog("Entered Additional Information");
     }
 
     public void clickCreateAccountButton() {
-    	click(createAccountButton);
+    	action.click(createAccountButton);
     	setLog("Clicked on Create Account button");
     }
 
     public boolean isAccountCreatedVisible() {
-        return isDisplayed(accountCreatedText);
+        return action.isDisplayed(accountCreatedText);
     }
 
     public void clickContinueButton() {
-    	click(continueButton);
+    	action.click(continueButton);
     	setLog("Clicked on Continue button");
     }
 
     public void clickDeleteAccountButton() {
-    	click(deleteAccountButton);
+    	action.click(deleteAccountButton);
     	setLog("Clicked on Delete button");
     }
 
     public boolean isAccountDeletedVisible() {
-        return isDisplayed(accountDeletedText);
+        return action.isDisplayed(accountDeletedText);
     }
 }

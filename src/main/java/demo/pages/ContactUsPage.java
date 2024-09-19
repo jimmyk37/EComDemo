@@ -6,8 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import demo.action.Action;
+import demo.base.BaseClass;
 
-public class ContactUsPage extends Action{
+public class ContactUsPage extends BaseClass{
+	Action action;
 	
 	@FindBy(xpath = "//h2[contains(text(),'Get In Touch')]")
     WebElement getInTouchText;
@@ -30,38 +32,39 @@ public class ContactUsPage extends Action{
     
     public ContactUsPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		action=new Action();
 	}
     
     public boolean isGetInTouchVisible() {
-        return isDisplayed(getInTouchText);
+        return action.isDisplayed(getInTouchText);
     }
 
     public void enterName(String name) {
-       sendKeys(nameField,name);
+    	action.sendKeys(nameField,name);
     }
 
     public void enterEmail(String email) {
-        sendKeys(emailField,email);
+    	action.sendKeys(emailField,email);
     }
 
     public void enterSubject(String subject) {
-        sendKeys(subjectField,subject);
+    	action.sendKeys(subjectField,subject);
     }
 
     public void enterMessage(String message) {
-        sendKeys(messageField,message);
+    	action.sendKeys(messageField,message);
     }
 
     public void uploadFile(String filePath) {
-        sendKeys(uploadFileInput,filePath);
+    	action.sendKeys(uploadFileInput,filePath);
     }
 
     public void clickSubmitButton() {
-        click(submitButton);
+    	action.click(submitButton);
     }
 
     public boolean isSuccessMessageVisible() {
-        return isDisplayed(successMessage);
+        return action.isDisplayed(successMessage);
     }
 
     public void clickHomeButton() {

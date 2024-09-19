@@ -25,17 +25,11 @@ public class TestLogin extends BaseClass {
 	public void loginUserWithIncorrectEmailAndPassword() {
 
 		Assert.assertTrue(homePage.isHomePageVisible(), "Home page is not visible.");
-
 		homePage.clickSignupLoginButton();
-
 		Assert.assertTrue(loginPage.isLoginToYourAccountVisible(), "'Login to your account' is not visible.");
-
 		loginPage.enterEmail("incorrect@example.com", "incorrectpassword");
-
 		loginPage.clickLoginButton();
-
-		Assert.assertTrue(loginPage.isErrorMessageVisible(),
-				"'Your email or password is incorrect!' error is not visible.");
+		Assert.assertTrue(loginPage.isErrorMessageVisible(),"'Your email or password is incorrect!' error is not visible.");
 	}
 
 	@Test(priority = 1)
@@ -43,16 +37,11 @@ public class TestLogin extends BaseClass {
 
 		Assert.assertTrue(homePage.isHomePageVisible(), "Home page is not visible.");
 		setLog("Home page is visible.");
-
 		homePage.clickSignupLoginButton();
-
 		Assert.assertTrue(loginPage.isLoginToYourAccountVisible(), "'Login to your account' is not visible.");
 		setLog("'Login to your account' is visible.");
-
 		loginPage.enterEmail("mayank.imktg@gmail.com", "Mayank@123");
-
 		loginPage.clickLoginButton();
-
 		Assert.assertTrue(loginPage.isLoggedInAsUsernameVisible(), "'Logged in as username' is not visible.");
 		setLog("'Logged in as username' is visible.");
 		loginPage.clickLogoutButton();
@@ -62,21 +51,14 @@ public class TestLogin extends BaseClass {
 	public void loginUserWithCorrectEmailAndPasswordThenLogout() {
 		Assert.assertTrue(homePage.isHomePageVisible(), "Home page is not visible.");
 		setLog("Home page is visible.");
-
 		homePage.clickSignupLoginButton();
-
 		Assert.assertTrue(loginPage.isLoginToYourAccountVisible(), "'Login to your account' is not visible.");
 		setLog("'Login to your account' is visible.");
-
 		loginPage.enterEmail("mayank.imktg@gmail.com", "Mayank@123");
-
 		loginPage.clickLoginButton();
-
 		Assert.assertTrue(loginPage.isLoggedInAsUsernameVisible(), "'Logged in as username' is not visible.");
 		setLog("'Logged in as username' is visible.");
-
 		loginPage.clickLogoutButton();
-
 		Assert.assertTrue(loginPage.isLoginToYourAccountVisible(),
 				"User is not navigated back to the login page after logout.");
 		setLog("User is navigated back to the login page after logout.");
