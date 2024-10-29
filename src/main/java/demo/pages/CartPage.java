@@ -58,6 +58,7 @@ public class CartPage extends BaseClass {
 	public boolean verifyFirstProductDetails(String price, String quantity, String total) {
 		return firstProductPrice.getText().equals(price) && firstProductQuantity.getText().equals(quantity)
 				&& firstProductTotal.getText().equals(total);
+		
 	}
 
 	public boolean verifySecondProductDetails(String price, String quantity, String total) {
@@ -71,6 +72,7 @@ public class CartPage extends BaseClass {
 
 	public void clickRemoveFirstProductButton() {
 		action.click(removeFirstProductButton);
+		setLog("Removed First Added Product");
 	}
 
 	public boolean isCartNotEmpty() {
@@ -79,6 +81,7 @@ public class CartPage extends BaseClass {
 
 	public void clickRemoveSecondProductButton() {
 		action.click(removeSecondProductButton);
+		setLog("Removed Second Added Product");
 	}
 
 	public boolean isProductRemoved(String name) {
@@ -94,6 +97,7 @@ public class CartPage extends BaseClass {
 
 	public void enterEMailtoSubscription(String email) {
 		action.sendKeys(emailinput, email);
+		setLog("Entered Email to Subscription Box");
 	}
 
 	public void clickOnSubscribeBtn() {

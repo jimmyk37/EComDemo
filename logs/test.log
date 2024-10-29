@@ -1,49 +1,5 @@
-2024-09-17 15:17:59 INFO  BaseClass:80 - Extent Report initialized successfully.
-2024-09-17 15:18:05 INFO  BaseClass:149 - Test Case Started: viewHomePageBrandsProducts
-2024-09-17 15:18:07 INFO  BaseClass:149 - Clicked on Women Category and SubCategory Dress
-2024-09-17 15:18:09 INFO  BaseClass:124 - Test Case Passed: viewHomePageBrandsProducts
-2024-09-17 15:18:09 INFO  BaseClass:149 - Test Case Started: viewProductPageBrandsProducts
-2024-09-17 15:18:15 INFO  BaseClass:149 - Clicked on Women Category and SubCategory Dress
-2024-09-17 15:18:17 INFO  BaseClass:124 - Test Case Passed: viewProductPageBrandsProducts
-2024-09-17 15:18:20 INFO  BaseClass:96 - Extent Report flushed successfully.
-2024-09-17 15:52:45 INFO  BaseClass:80 - Extent Report initialized successfully.
-2024-09-17 15:52:46 INFO  BaseClass:80 - Extent Report initialized successfully.
-2024-09-17 15:52:52 INFO  BaseClass:149 - Navigated to url :- http://automationexercise.com
-2024-09-17 15:52:56 INFO  BaseClass:149 - Navigated to url :- http://automationexercise.com
-2024-09-17 15:54:04 INFO  BaseClass:80 - Extent Report initialized successfully.
-2024-09-17 15:54:14 INFO  BaseClass:149 - Test Case Started: writeReview
-2024-09-17 15:54:25 INFO  BaseClass:149 - Entered Review Details
-2024-09-17 15:54:25 INFO  BaseClass:149 - Clicked on Submit Review button
-2024-09-17 15:54:35 INFO  BaseClass:115 - Test Case Failed: writeReview
-2024-09-17 15:54:35 INFO  BaseClass:116 - Failure Reason: expected [Thank you for your review.] but found []
-2024-09-17 15:54:38 INFO  BaseClass:96 - Extent Report flushed successfully.
-2024-09-19 13:44:36 INFO  BaseClass:80 - Extent Report initialized successfully.
-2024-09-19 13:44:45 INFO  BaseClass:149 - Test Case Started: contactUsFormSubmission
-2024-09-19 13:44:57 INFO  BaseClass:124 - Test Case Passed: contactUsFormSubmission
-2024-09-19 13:44:59 INFO  BaseClass:96 - Extent Report flushed successfully.
-2024-10-28 15:31:17 INFO  BaseClass:80 - Extent Report initialized successfully.
-2024-10-28 15:31:25 INFO  BaseClass:149 - Test Case Started: testCompleteOrderProcess
-2024-10-28 15:31:30 INFO  BaseClass:149 - Clicked on Login/Signup button
-2024-10-28 15:31:30 INFO  BaseClass:149 - 'New User Signup!' is visible
-2024-10-28 15:31:32 INFO  BaseClass:149 - Entered Name & Email Address
-2024-10-28 15:31:35 INFO  BaseClass:149 - Clicked on Signup Button
-2024-10-28 15:31:35 INFO  BaseClass:149 - 'ENTER ACCOUNT INFORMATION' is visible
-2024-10-28 15:31:48 INFO  BaseClass:149 - Entered Account Information
-2024-10-28 15:31:48 INFO  BaseClass:149 - Selected Newsletter Checkbox
-2024-10-28 15:31:49 INFO  BaseClass:149 - Selected offers Checkbox
-2024-10-28 15:31:53 INFO  BaseClass:149 - Entered Additional Information
-2024-10-28 15:31:57 INFO  BaseClass:149 - Clicked on Create Account button
-2024-10-28 15:31:57 INFO  BaseClass:149 - 'ACCOUNT CREATED!' is visible
-2024-10-28 15:32:03 INFO  BaseClass:149 - Clicked on Continue button
-2024-10-28 15:32:16 INFO  BaseClass:149 - Entered discription Text:- Testdg
-2024-10-28 15:33:27 INFO  BaseClass:149 - Clicked on Place Order Button
-2024-10-28 15:33:37 INFO  BaseClass:115 - Test Case Failed: testCompleteOrderProcess
-2024-10-28 15:33:37 INFO  BaseClass:116 - Failure Reason: Unable to locate element: //*[@name='name_on_card']
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.17.0', revision: 'e52b1be057*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [ae3c9e82-b37d-41d2-b6c7-b203e7778b76, findElement {value=//*[@name='name_on_card'], using=xpath}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 131.0.3, moz:accessibilityChecks: false, moz:buildID: 20241011205646, moz:geckodriverVersion: 0.35.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 11824, moz:profile: C:\Users\Lenovo\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: ae3c9e82-b37d-41d2-b6c7-b203e7778b76
-2024-10-28 15:33:45 INFO  BaseClass:96 - Extent Report flushed successfully.
+2024-10-29 15:00:08 INFO  BaseClass:80 - Extent Report initialized successfully.
+2024-10-29 15:00:13 INFO  BaseClass:149 - Test Case Started: testCompleteOrderProcess
+2024-10-29 15:00:51 INFO  BaseClass:115 - Test Case Failed: testCompleteOrderProcess
+2024-10-29 15:00:51 INFO  BaseClass:116 - Failure Reason: 'New User Signup!' is not visible expected [true] but found [false]
+2024-10-29 15:00:53 INFO  BaseClass:96 - Extent Report flushed successfully.
