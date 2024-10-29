@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import demo.base.BaseClass;
 import demo.pages.CartPage;
+import demo.pages.CheckOutPage;
 import demo.pages.HomePage;
 import demo.pages.ProductsPage;
 import demo.pages.SignupPage;
@@ -18,6 +19,7 @@ public class TestRegisterWhileCheckout extends BaseClass {
 	ProductsPage productPage;
 	CartPage cartpage;
 	SignupPage signupPage;
+	CheckOutPage checkOutPage;
 	
 	@BeforeClass
 	void setup() {
@@ -27,6 +29,7 @@ public class TestRegisterWhileCheckout extends BaseClass {
 		cartpage= new CartPage(driver);
 		signupPage=new SignupPage(driver);	
 		productPage=new ProductsPage(driver);
+		checkOutPage= new CheckOutPage(driver);
 	}
 	
 	@Test
@@ -68,6 +71,22 @@ public class TestRegisterWhileCheckout extends BaseClass {
 		assertTrue(cartpage.isCartNotEmpty());
 		cartpage.clickCheckOut();
 		
+		Assert.assertTrue(checkOutPage.isAddressSectionDisplayed(), "Address Section not Visible");
+		Assert.assertTrue(checkOutPage.isReviewOrderDisplayed(), "Review Order not Visible");
+		checkOutPage.enterDiscription("Testdg");
+		checkOutPage.clickPlaceOrder();
+		Assert.assertTrue(checkOutPage.isPaymentVisible(), "Payment Page not Visible");
+		
+		checkOutPage.enterName("test");
+		checkOutPage.enterCardNumber("4111111111111111");
+		checkOutPage.entercvc("123");
+		checkOutPage.enterexpiryMonth("03");
+		checkOutPage.enterexpiryYear("2025");
+		checkOutPage.clickonPay();
+		
+		Assert.assertTrue(checkOutPage.isorderPlacedDisplayed(), "Order placement failed.");
+		homePage.clickDeleteAccountBtn();
+		Assert.assertTrue(homePage.isDeleteAccountTextVisible(), "'ACCOUNT DELETED!' is not visible");
 
 	}
 	
